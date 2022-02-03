@@ -5,6 +5,7 @@ Ingresa el código a evaluar, al terminar presiona un #
 
 Símbolos léxicos:
 identificador 0
+
 entero 1
 real 2
 cadena 3
