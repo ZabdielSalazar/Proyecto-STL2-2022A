@@ -2,24 +2,24 @@
 #include<string.h>
 
 char input[200];    // Almacena la cadena de entrada 
-char token[6];      // Almacena la cadena que forma el sÌmbolo de la palabra 
-char ch;            // Almacena los caracteres leÌdos actualmente 
-int p;              // input [] subÌndice 
+char token[6];      // Almacena la cadena que forma el s√≠mbolo de la palabra 
+char ch;            // Almacena los caracteres le√≠dos actualmente 
+int p;              // input [] sub√≠ndice 
 int fg;             // marca de cambio 
 int num;            // Almacenar valores enteros 
 
 // Matriz de caracteres bidimensionales, almacenando palabras clave 
 char index[7][7]={"if","while","return","else","int","float", "void"};
 
-// DeclaraciÛn del mÈtodo de an·lisis lÈxico
+// Declaraci√≥n del m√©todo de an√°lisis l√©xico
 void scaner();  
 
 int main()
 {
     p=0;
+    printf("Ingresa el codigo (Termina con '#'):\n");
     
-    
-    // leer cÌclicamente en caracteres
+    // leer c√≠clicamente en caracteres
     do {
         ch=getchar();
         input[p++] = ch;
@@ -109,10 +109,10 @@ int main()
     return 0;
 }
 
-/*an·lisis lÈxico*/
+/*an√°lisis l√©xico*/
 void scaner()
 {
-	int m=0;        // token [] subÌndice 
+	int m=0;        // token [] sub√≠ndice 
 	int n;
   
     // Filtrar espacios 
@@ -306,4 +306,3 @@ void scaner()
         }
 
 }
-
