@@ -16,6 +16,7 @@ expresion();
 terminal((int)';');
 }
 int main(){
+  /*inicia desplazamiento*/
 elToken=yylex();
 instruccion();
 }
