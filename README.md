@@ -1,6 +1,8 @@
 # Proyecto-STL2-2022A
 Fases del proyecto: Análisis (Léxico, Sintáctico, Semántico)
 
+(version 3)
+
 Ingresa el código a evaluar, al terminar presiona un #
 
 Símbolos léxicos:
