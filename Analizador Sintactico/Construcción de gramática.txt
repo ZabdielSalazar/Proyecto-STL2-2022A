@@ -1,0 +1,13 @@
+condiciones:
+
+EMPEZAR CON:
+todo
+
+MENOS CON:
+-enteros
+-identificadores
+if var = 4;
+	un "=" en lugar de 2 despues de un if
+int ==3;
+	dos "==" en lugar de 1 despues de declarar tipo de dato
+siguientes ejemplos:
