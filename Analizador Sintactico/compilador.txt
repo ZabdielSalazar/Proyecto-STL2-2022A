@@ -1,0 +1,1 @@
+if|identificador|opIgualdad|entero|;|
