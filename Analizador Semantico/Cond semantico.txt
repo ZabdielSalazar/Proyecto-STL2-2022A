@@ -1,0 +1,9 @@
+Ejemplos de condiciones
+
+ANALISIS SEMANTICO:
+variable este declarada
+variable este duplicada
+incompatibilidad (que no se sumen entre distintos tipos de datos incompatibles como int, char, etc).
+Que no sea error
+
+[Error] 'VAR' was not declared
