@@ -1,12 +1,23 @@
 Ejemplos condiciones sintaxis:
-
 El token puede empezar con:
 Todo
-	Menos con:
-	-enteros
-	-identificadores (variable no declarada semántico)
+
+Menos con:
++	---enteros
++	---identificadores (variable no declarada semántico)
 	
-if var = 4;
-	un "=" en lugar de "==" despues de un if
-int ==3;
++if var = 4;
++	un "=" en lugar de "==" despues de un if
+	+correcto: if (var== 4){
+
++int var ==3;
 	dos "==" en lugar de "=" despues de tipo de dato
+
++if var == if
+
++while var == || != || < || > || <= || >=
+	+while (var==3){
+
++return 10; || return identificador;
+
++else{
