@@ -169,11 +169,12 @@ int main()
 					//cout<<"En Orden, token almacenado: "<<tokenAlmacenado<<endl;
 					if (tokenAlmacenado =="if"){
 						tokenCondicion = "if";
+						tokenAnterior = "if";
 					}
 				}
 				else{
 					if(tokenAlmacenado == "identificador"){ //Exista un identificador
-						cout<<"[Syntax Error] Identificador encontrado antes que tipo de dato"<<endl;
+						cout<<"[Error] Identificador no declarado"<<endl;
 						break;
 					}
 					else if(tokenAlmacenado == "entero"){ //El primer token es entero
@@ -188,42 +189,88 @@ int main()
 						cout<<"[Error] Tipo de dato no declarado"<<endl;
 					}
 				}
-			} //Termina el programa con error
-			
-			if(tokenPosicion == 1)
-			{
-				if (tokenAlmacenado == "identificador"){
-						tokenAnterior=tokenAlmacenado;
-						//cout<<tokenAnterior<<endl;
-					}
-			}
-			if(tokenPosicion == 2)
-			{
-				if (tokenCondicion == "if" && (tokenAnterior=="identificador")){
-					//cout<<"Entro en token condicion & identificador"<<endl;
-					if(tokenAlmacenado=="opIgualdad"){
-					tokenAnterior=tokenAlmacenado;
-					}
-					else{
-						cout<<"[Syntax Error] operador de igualdad no valido en if"<<endl;
-						break;
-					}
+			}//if tokenPosicion == 0
+
+			if(tokenCondicion == "if"){//si el usuario esta tecleando un if
+				if (tokenAlmacenado == "if"){
+					//cout<<"Hay un if dentro"<<endl;
 				}
-			}
-			if(tokenPosicion == 3)
-			{
-				if(tokenAlmacenado=="="){
-					if(tokenAnterior =="=" || (tokenAnterior=="!=")){
-						cout<<"Escribiste 'if var ==' correctamente"<<endl;
+				else{
+					if(tokenAnterior == "if"){
+						if(tokenAlmacenado == "(")
+						{
+							tokenAnterior=tokenAlmacenado;
+							goto seCumple;
+						}
+						else{
+								cout<<"[Error] Expected '(' before"<<endl;
+								break;
+						}
 					}
-					else{
-							cout<<"[Syntax Error] if; operadores de if no conocidos"<<endl;
-							break;
+					if (tokenAnterior == "("){
+						if(tokenAlmacenado == "identificador")
+						{
+							tokenAnterior=tokenAlmacenado;
+							goto seCumple;
 						
+						}
+						else{
+							cout<<"[Syntax Error] identificador no valido"<<endl;
+							break;
+						}
 					}
-				}
-			}
-			
+					if (tokenAnterior == "identificador"){
+						if(tokenAlmacenado == "opIgualdad")
+						{
+							tokenAnterior=tokenAlmacenado;
+							goto seCumple;
+						
+						}
+						else{
+							cout<<"[Syntax Error] operador de igualdad no valido en if"<<endl;
+							break;
+						}
+					}
+					if(tokenAnterior == "opIgualdad"){
+						if(tokenAlmacenado == "identificador" || (tokenAlmacenado == "entero")){
+							tokenAnterior=tokenAlmacenado;
+							goto seCumple;
+							
+						}
+						else{
+								cout<<"[Syntax Error] operador no valido en if before ')'"<<endl;
+								break;
+						}	
+					}
+					if (tokenAnterior == "identificador" || (tokenAnterior == "entero")){
+						if(tokenAlmacenado == ")")
+						{
+							tokenAnterior=tokenAlmacenado;
+							goto seCumple;
+						
+						}
+						else{
+							cout<<"[Syntax Error] operador de igualdad no valido en if"<<endl;
+							break;
+						}
+					}
+					if(tokenAnterior == ")"){
+						if(tokenAlmacenado == ";")
+						{
+							cout<<endl<<"Codigo sin errores analizado exitosamente";
+							tokenAnterior=tokenAlmacenado;
+							goto seCumple;
+						}
+						else{
+								cout<<"[Error] Expected ')' before"<<endl;
+								break;
+						}
+					}
+					
+				}//Fin else if tokenPosicion >0
+				
+			}//entra solo si la bandera de condicion es if
+		seCumple:
 		tokenAlmacenado="";
 		tokenPosicion++;
 		} //Fin de encontrar token
@@ -236,9 +283,9 @@ int main()
 		
 	}
 	fclose(fichero);
-	cout<<endl<<"FIN DE PROGRAMA";
+	cout<<endl<<"Fin de compilador";
 		
-	
+		
     return 0;
 }
 
