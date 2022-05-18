@@ -5,7 +5,7 @@
 using namespace std;
 
 char input[200];    // Almacena la cadena de entrada 
-char token[6];      // Almacena la cadena que forma el símbolo de la palabra 
+char token[20];      // Almacena la cadena que forma el símbolo de la palabra 
 char ch;            // Almacena los caracteres leídos actualmente 
 int p;              // input [] subíndice 
 int fg;             // marca de cambio 
@@ -220,7 +220,7 @@ int main()
 						}
 					}
 					if (tokenAnterior == "identificador"){
-						if(tokenAlmacenado == "opIgualdad")
+						if(tokenAlmacenado == "opIgualdad" || (tokenAlmacenado == ")"))
 						{
 							tokenAnterior=tokenAlmacenado;
 							goto seCumple;
@@ -242,7 +242,8 @@ int main()
 								break;
 						}	
 					}
-					if (tokenAnterior == "identificador" || (tokenAnterior == "entero")){
+					
+					if ((tokenAnterior == "identificador")|| (tokenAnterior == "entero")){
 						if(tokenAlmacenado == ")")
 						{
 							tokenAnterior=tokenAlmacenado;
@@ -250,19 +251,19 @@ int main()
 						
 						}
 						else{
-							cout<<"[Syntax Error] operador de igualdad no valido en if"<<endl;
+							cout<<"[Syntax Error] Expected ')'"<<endl;
 							break;
 						}
 					}
 					if(tokenAnterior == ")"){
-						if(tokenAlmacenado == ";")
+						if(tokenAlmacenado == "{")
 						{
 							cout<<endl<<"Codigo sin errores analizado exitosamente";
 							tokenAnterior=tokenAlmacenado;
 							goto seCumple;
 						}
 						else{
-								cout<<"[Error] Expected ')' before"<<endl;
+								cout<<"[Syntaxis Error] Expected '{' before ')'"<<endl;
 								break;
 						}
 					}
@@ -338,30 +339,6 @@ void scaner()
     else
         switch(ch)
         {
-        	/*
-            case '<':
-            {
-                token[m++]=ch;
-                ch=input[p++];
-                if(ch=='>')          // Generar <> 
-                {
-                    fg=14;
-                    token[m++]=ch;
-                }
-                else if(ch=='=')     // Generar <= 
-                {
-                    fg=15;
-                    token[m++]=ch;
-                }
-                else
-                {
-                    fg=13;
-                    p--;
-                }
-                token[m++] = '\0';
-                break;
-            } */
-
 		    case '>':
             {
                 token[m++]=ch;
