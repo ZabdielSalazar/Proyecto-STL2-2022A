@@ -58,3 +58,7 @@ else 22
 $ 23
 
 Los valores del tipo deben coincidir con la columna
+
+## Mapa de funcionamiento
+
+[Procesos, contratos y diagnóstico](docs/FUNCIONAMIENTO.md), con el SHA observado y la distinción entre código, propuestas y publicación.
